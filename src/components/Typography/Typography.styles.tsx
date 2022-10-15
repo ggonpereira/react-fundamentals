@@ -33,7 +33,7 @@ export const Text = styled.span<TextProps>`
   ${({ variant }) => variant === "md" && mdVariantCSS}
   ${({ variant }) => variant === "lg" && lgVariantCSS}
 
-  color: ${({ color, theme }) => color || theme.colors.gray[300]}
+  color: ${({ color, theme }) => color || theme.colors.gray[300]};
 
-  ${({ isBold }) => isBold && isBoldCSS}
+  ${({ isBold }) => isBold && isBoldCSS};
 `;
