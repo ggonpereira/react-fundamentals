@@ -1,13 +1,13 @@
 export const dark = {
   colors: {
     gray: {
-      800: "#121214",
-      700: "#202024",
-      600: "#323238",
-      500: "#7C7C8A",
-      300: "#8D8D99",
-      200: "#C4C4CC",
-      100: "#E1E1E6",
+      1: "#121214",
+      2: "#202024",
+      3: "#323238",
+      4: "#7C7C8A",
+      5: "#8D8D99",
+      6: "#C4C4CC",
+      7: "#E1E1E6",
     },
     white: "#FFFFFF",
     black: "#000000",
@@ -16,3 +16,5 @@ export const dark = {
     secondary: "#FC4040",
   },
 };
+
+export type DarkTheme = typeof dark;
