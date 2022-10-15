@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.gray[2]};
+  background-color: ${({ theme }) => theme.colors.gray[800]};
   display: flex;
   gap: 16px;
   justify-content: center;
