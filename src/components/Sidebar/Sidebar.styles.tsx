@@ -1,0 +1,43 @@
+import styled from "styled-components";
+
+export const Sidebar = styled.aside`
+  background-color: ${({ theme }) => theme.colors.gray[800]};
+  border-radius: 0.8rem;
+  max-width: 25.6rem;
+  position: relative;
+`;
+
+export const MainContent = styled.div`
+  align-items: center;
+  border-bottom: 0.1rem solid ${({ theme }) => theme.colors.gray[600]};
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 4rem 0 2.4rem 0px;
+
+  div:first-of-type {
+    position: absolute;
+    top: 15%;
+  }
+`;
+
+export const Background = styled.div`
+  img {
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    height: 7.2rem;
+    object-fit: cover;
+    width: 25.6rem;
+  }
+`;
+
+export const UserInformation = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const BottomContent = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+`;
