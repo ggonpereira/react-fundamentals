@@ -8,13 +8,13 @@ interface HeadingProps {
 const mdVariantCSS = css`
   font-size: 2.56rem;
   font-weight: 700;
-  line-height: 41px;
+  line-height: 4.1rem;
 `;
 
 const lgVariantCSS = css`
   font-size: 2.4rem;
   font-weight: 700;
-  line-height: 33.6px;
+  line-height: 3.36rem;
 `;
 
 export const Heading = styled.h2<HeadingProps>`

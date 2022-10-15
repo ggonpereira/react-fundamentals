@@ -9,19 +9,19 @@ interface TextProps {
 const smVariantCSS = css`
   font-size: 1.2rem;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 2.2rem;
 `;
 
 const mdVariantCSS = css`
   font-size: 1.4rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 `;
 
 const lgVariantCSS = css`
   font-size: 1.6rem;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 2.6rem;
 `;
 
 const isBoldCSS = css`
