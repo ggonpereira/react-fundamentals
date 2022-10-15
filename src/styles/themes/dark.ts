@@ -12,8 +12,8 @@ export const dark = {
     white: "#FFFFFF",
     black: "#000000",
     danger: "#F75A68",
-    primary: "#f87537",
-    secondary: "#fba81f",
+    primary: "#fba81f",
+    secondary: "#f87537",
   },
 };
 
