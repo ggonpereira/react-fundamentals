@@ -1,9 +1,9 @@
-import { Logo } from "../../assets/icons";
+import { Header } from "../../components/Header";
 
 export const Home = () => {
   return (
-    <div>
-      <Logo />
-    </div>
+    <>
+      <Header />
+    </>
   );
 };
