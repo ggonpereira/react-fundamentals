@@ -5,7 +5,9 @@ import * as S from "./Home.styles";
 
 import userAvatar from "../../assets/userPicture.jpg";
 import userBackground from "../../assets/userBackground.jpg";
-import { TextArea } from "../../components/TextArea/TextArea";
+import { Post } from "../../components/Post/Post";
+
+import { posts } from "../../constants/posts";
 
 export const Home = () => (
   <>
@@ -22,7 +24,15 @@ export const Home = () => (
       />
 
       <S.MainContent>
-        <TextArea />
+        {posts.map((post) => (
+          <Post
+            userAvatar={userAvatar}
+            userName="Gabriel Pereira"
+            userRole="Frontend Engineer"
+            postContent={post.content}
+            key={post.id}
+          />
+        ))}
       </S.MainContent>
     </S.Container>
   </>
