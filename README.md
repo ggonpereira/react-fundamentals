@@ -12,7 +12,7 @@
 
 <h2>About 📝</h2>
 
-<p align="center">A project created using ReactJS, TypeScript, Storybook, Styled Components and React Testing Library.! 👊🏼</p>
+<p align="center">A project created using ReactJS, TypeScript, Storybook, Styled Components and React Testing Library! 👊🏼</p>
 
 ---
 
