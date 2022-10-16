@@ -11,5 +11,5 @@ export const Container = styled.div`
 
 export const MainContent = styled.main`
   max-width: 83.2rem;
-  outline: 1px solid green;
+  width: 100%;
 `;
