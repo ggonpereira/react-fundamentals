@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Sidebar = styled.aside`
   background-color: ${({ theme }) => theme.colors.gray[800]};
-  border-radius: 0.8rem;
+  border-radius: 8px;
   max-width: 25.6rem;
   position: relative;
 `;

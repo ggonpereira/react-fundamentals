@@ -30,7 +30,7 @@ const outlinedVariantCSS = css`
 
 export const Button = styled.button<ButtonProps>`
   align-items: center;
-  border-radius: 0.8rem;
+  border-radius: 8px;
   border: 0.1rem solid ${({ theme }) => theme.colors.primary};
   display: flex;
   gap: 1rem;
