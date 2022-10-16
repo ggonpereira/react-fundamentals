@@ -43,6 +43,7 @@ export const Sidebar = ({
         <Button
           onClick={handleEditProfile}
           icon={<PencilSimpleLine size={22} />}
+          variant="outlined"
         >
           Edit your profile
         </Button>
