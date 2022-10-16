@@ -6,15 +6,17 @@ interface ButtonProps {
   onClick: (prop?: any) => void;
   icon?: ReactNode;
   children: ReactNode;
+  isFullWidth?: boolean;
 }
 
 export const Button = ({
-  variant = "outlined",
+  variant = "filled",
   onClick,
   icon,
   children,
+  isFullWidth,
 }: ButtonProps) => (
-  <S.Button onClick={onClick} variant={variant}>
+  <S.Button onClick={onClick} variant={variant} isFullWidth={isFullWidth}>
     {icon && icon}
 
     <S.Text>{children}</S.Text>

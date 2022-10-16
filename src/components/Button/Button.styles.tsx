@@ -3,6 +3,7 @@ import { darken } from "@theme-ui/color";
 
 interface ButtonProps {
   variant: "filled" | "outlined";
+  isFullWidth?: boolean;
 }
 
 const filledVariantCSS = css`
@@ -37,6 +38,7 @@ export const Button = styled.button<ButtonProps>`
   justify-content: center;
   padding: 1.4rem 2.4rem;
   transition: all 0.12s ease-in;
+  max-width: ${({ isFullWidth }) => !isFullWidth && "fit-content"};
 
   ${({ variant }) => variant === "filled" && filledVariantCSS}
   ${({ variant }) => variant === "outlined" && outlinedVariantCSS}
