@@ -41,7 +41,7 @@ export const Post = ({
           </S.UserInformation>
         </S.UserArea>
 
-        <Typography color={colors.gray[400]}>Publicado há 1h</Typography>
+        <Typography color={colors.gray[400]}>Published 1hr ago</Typography>
       </S.Header>
 
       <S.PostContent>{parse(postContent)}</S.PostContent>
