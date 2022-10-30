@@ -6,6 +6,11 @@ import * as S from "./Post.styles";
 import { TextArea } from "../TextArea";
 import { Button } from "../Button";
 import { useState } from "react";
+import {
+  formatHours,
+  getPassedHours,
+  subtractHours,
+} from "../../utils/functions";
 
 interface PostProps {
   userAvatar: string;
@@ -13,6 +18,8 @@ interface PostProps {
   userRole: string;
   postContent: string;
 }
+
+const mockPostDate = subtractHours(new Date(), 1);
 
 export const Post = ({
   userAvatar,
@@ -22,6 +29,8 @@ export const Post = ({
 }: PostProps) => {
   const { colors } = useTheme();
   const [feedback, setFeedback] = useState("");
+
+  const formattedHour = formatHours(mockPostDate);
 
   const handlePublishFeedback = () => {
     console.log("Your feedback was: ", feedback);
@@ -41,7 +50,9 @@ export const Post = ({
           </S.UserInformation>
         </S.UserArea>
 
-        <Typography color={colors.gray[400]}>Published 1hr ago</Typography>
+        <S.Time title={formattedHour} dateTime={formattedHour}>
+          Published {getPassedHours(mockPostDate)} ago
+        </S.Time>
       </S.Header>
 
       <S.PostContent>{parse(postContent)}</S.PostContent>

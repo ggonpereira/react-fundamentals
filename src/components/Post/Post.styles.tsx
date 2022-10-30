@@ -28,6 +28,13 @@ export const UserInformation = styled.div`
   flex-direction: column;
 `;
 
+export const Time = styled.time`
+  color: ${({ theme }) => theme.colors.gray[300]};
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+`;
+
 export const PostContent = styled.div`
   font-size: 1.6rem;
   line-height: 2.5rem;
@@ -47,7 +54,7 @@ export const PostContent = styled.div`
   }
 `;
 
-export const FeedbackArea = styled.div`
+export const FeedbackArea = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
