@@ -11,6 +11,11 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 0.625rem;
   }
 
+  :focus {
+    outline: transparent;
+    box-shadow: 0px 0px 0px 2px ${({ theme }) => theme.colors.primary};
+  }
+
   button {
     cursor: pointer;
   }

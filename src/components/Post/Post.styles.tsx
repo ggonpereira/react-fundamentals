@@ -58,4 +58,15 @@ export const FeedbackArea = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+
+  button {
+    position: absolute;
+    top: -9999px;
+  }
+
+  &:focus-within {
+    button {
+      position: initial;
+    }
+  }
 `;
