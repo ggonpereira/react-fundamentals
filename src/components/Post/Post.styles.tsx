@@ -58,6 +58,7 @@ export const FeedbackArea = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  margin-bottom: 3.2rem;
 
   button {
     position: absolute;

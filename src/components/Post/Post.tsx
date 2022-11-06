@@ -11,6 +11,7 @@ import {
   getPassedHours,
   subtractHours,
 } from "../../utils/functions";
+import { Comment } from "../Comment";
 
 interface PostProps {
   userAvatar: string;
@@ -70,6 +71,8 @@ export const Post = ({
 
         <Button onClick={handlePublishFeedback}>Publish</Button>
       </S.FeedbackArea>
+
+      <Comment isAuthor={true} userName="Gabriel Pereira" />
     </S.Container>
   );
 };

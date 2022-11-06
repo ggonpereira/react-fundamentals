@@ -1,11 +1,19 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const AvatarWrapper = styled.div`
+interface AvatarWrapperProps {
+  withBorder: boolean;
+}
+
+const outlineCSS = css`
+  outline: 0.2rem solid ${({ theme }) => theme.colors.primary};
+`;
+
+export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   background-color: ${({ theme }) => theme.colors.gray[800]};
   border-radius: 8px;
   display: flex;
   height: fit-content;
-  outline: 0.2rem solid ${({ theme }) => theme.colors.primary};
+  ${({ withBorder }) => withBorder && outlineCSS}
   padding: 0.3rem;
   width: fit-content;
 
