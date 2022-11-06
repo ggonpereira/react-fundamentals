@@ -7,7 +7,7 @@ export const Container = styled.article`
   padding: 4rem;
 
   & + & {
-    margin-bottom: 3.2rem;
+    margin-top: 3.2rem;
   }
 
   @media all and (max-width: 768px) {
