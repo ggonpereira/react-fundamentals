@@ -5,6 +5,11 @@ export const Sidebar = styled.aside`
   border-radius: 8px;
   max-width: 25.6rem;
   position: relative;
+  width: 100%;
+
+  @media all and (max-width: 768px) {
+    max-width: none;
+  }
 `;
 
 export const MainContent = styled.div`
@@ -27,7 +32,7 @@ export const Background = styled.div`
     border-top-right-radius: 0.8rem;
     height: 7.2rem;
     object-fit: cover;
-    width: 25.6rem;
+    width: 100%;
   }
 `;
 

@@ -22,5 +22,10 @@ export const AvatarWrapper = styled.div<AvatarWrapperProps>`
     height: 4.9rem;
     object-fit: cover;
     width: 4.9rem;
+
+    @media all and (max-width: 768px) {
+      width: 4rem;
+      height: 4rem;
+    }
   }
 `;

@@ -9,6 +9,10 @@ export const Container = styled.article`
   & + & {
     margin-bottom: 3.2rem;
   }
+
+  @media all and (max-width: 768px) {
+    padding: 1.6rem;
+  }
 `;
 
 export const Header = styled.header`
@@ -16,6 +20,12 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2.4rem;
+
+  @media all and (max-width: 320px) {
+    flex-direction: column;
+    align-items: initial;
+    gap: 1.6rem;
+  }
 `;
 
 export const UserArea = styled.div`

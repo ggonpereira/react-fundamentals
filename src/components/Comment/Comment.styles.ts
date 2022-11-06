@@ -25,6 +25,10 @@ export const Container = styled.div`
   & + & {
     margin-bottom: 2.4rem;
   }
+
+  @media all and (max-width: 768px) {
+    gap: 0.8rem;
+  }
 `;
 
 export const InnerContent = styled.div`

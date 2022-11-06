@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     font-size: 0.625rem;
+
+    @media all and (max-width: 768px) {
+      font-size: 0.546875rem;
+    }
   }
 
   :focus {
