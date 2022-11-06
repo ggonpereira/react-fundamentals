@@ -36,7 +36,7 @@ export const Comment = ({
       <S.InnerContent>
         <S.MainContent>
           <S.Header>
-            <S.NameArea>
+            <div>
               <Typography isBold color={theme.colors.gray[100]}>
                 {userName}
               </Typography>
@@ -46,7 +46,7 @@ export const Comment = ({
                   (you)
                 </Typography>
               )}
-            </S.NameArea>
+            </div>
             <S.IconWrapper>
               <Trash size={24} />
             </S.IconWrapper>

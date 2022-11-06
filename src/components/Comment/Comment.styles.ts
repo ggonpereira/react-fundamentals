@@ -13,6 +13,10 @@ const wasReactedCSS = css`
   }
 `;
 
+const primaryColorDarken100CSS = css`
+  color: ${({ theme }) => darken(theme.colors.primary, 0.1)};
+`;
+
 export const Container = styled.div`
   display: flex;
   gap: 1.6rem;
@@ -40,15 +44,21 @@ export const Header = styled.header`
   margin-bottom: -5px;
 `;
 
-export const NameArea = styled.div``;
-
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.button`
   color: ${({ theme }) => theme.colors.gray[400]};
   cursor: pointer;
   transition: cursor 0.3s ease-in;
+  line-height: 0;
+  background-color: transparent;
+  border: none;
 
   &:hover {
     color: ${({ theme }) => darken(theme.colors.gray[400], 0.05)};
+  }
+
+  &:focus {
+    border-radius: 0.4rem;
+    color: ${({ theme }) => theme.colors.danger};
   }
 `;
 
@@ -74,14 +84,15 @@ export const ReactionArea = styled.button<ReactionAreaProps>`
     transition: color 0.2s ease;
   }
 
-  &:focus {
-    box-shadow: none;
-
-    color: ${({ theme }) => theme.colors.primary};
-
-    > span {
-      color: ${({ theme }) => theme.colors.primary};
+  &:hover {
+    &,
+    span {
+      ${primaryColorDarken100CSS}
     }
+  }
+
+  &:focus {
+    border-radius: 0.4rem;
   }
 
   ${({ wasReacted }) => wasReacted && wasReactedCSS}
