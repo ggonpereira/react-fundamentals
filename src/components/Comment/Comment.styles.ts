@@ -23,7 +23,7 @@ export const Container = styled.div`
   width: 100%;
 
   & + & {
-    margin-bottom: 2.4rem;
+    margin-top: 2.4rem;
   }
 
   @media all and (max-width: 768px) {
