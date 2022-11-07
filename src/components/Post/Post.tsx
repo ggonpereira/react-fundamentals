@@ -6,32 +6,33 @@ import * as S from "./Post.styles";
 import { TextArea } from "../TextArea";
 import { Button } from "../Button";
 import { useState } from "react";
-import {
-  formatHours,
-  getPassedHours,
-  subtractHours,
-} from "../../utils/functions";
 import { Comment } from "../Comment";
+import { format, formatDistanceToNow } from "date-fns";
 
 interface PostProps {
   userAvatar: string;
   userName: string;
   userRole: string;
   postContent: string;
+  publishedAt: Date;
 }
-
-const mockPostDate = subtractHours(new Date(), 1);
 
 export const Post = ({
   userAvatar,
   userName,
   userRole,
   postContent = "",
+  publishedAt,
 }: PostProps) => {
+  console.info(publishedAt);
   const { colors } = useTheme();
   const [feedback, setFeedback] = useState("");
+  const publishedDateFormatTitle = format(
+    publishedAt,
+    "MMMM dd'th at' HH:mm'h'"
+  );
 
-  const formattedHour = formatHours(mockPostDate);
+  const dateDistance = formatDistanceToNow(publishedAt);
 
   const handlePublishFeedback = () => {
     console.log("Your feedback was: ", feedback);
@@ -51,8 +52,11 @@ export const Post = ({
           </S.UserInformation>
         </S.UserArea>
 
-        <S.Time title={formattedHour} dateTime={formattedHour}>
-          Published {getPassedHours(mockPostDate)} ago
+        <S.Time
+          title={publishedDateFormatTitle}
+          dateTime={publishedAt.toISOString()}
+        >
+          Published {dateDistance} ago
         </S.Time>
       </S.Header>
 
