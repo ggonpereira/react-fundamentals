@@ -2,28 +2,34 @@ import { UserAvatar } from "../UserAvatar";
 import * as S from "./Comment.styles";
 import parse from "html-react-parser";
 
-import userAvatar from "../../assets/userPicture.jpg";
 import { ThumbsUp, Trash } from "phosphor-react";
 import { Typography } from "../Typography";
 import { useState } from "react";
 import { useTheme } from "styled-components";
-
-const textContent = "Muito bom Devon, parabéns!! 👏👏";
-const publishedAt = "About 2h ago";
+import { formatDistanceToNow } from "date-fns";
 
 interface CommentProps {
   isAuthor: boolean;
   userName: string;
+  userAvatar: string;
+  textContent: string;
+  publishedAt: Date;
+  wasReacted: boolean;
 }
 
 export const Comment = ({
   isAuthor = false,
-  userName = "Pereira",
+  userName,
+  userAvatar,
+  textContent,
+  publishedAt,
+  wasReacted,
 }: CommentProps) => {
   const theme = useTheme();
 
   const [reactionCount, setReactionCount] = useState(0);
-  const [wasReacted, setWasReacted] = useState(false);
+
+  const dateDistance = formatDistanceToNow(publishedAt);
 
   return (
     <S.Container>
@@ -52,7 +58,7 @@ export const Comment = ({
             </S.IconWrapper>
           </S.Header>
           <Typography variant="sm" color={theme.colors.gray[400]}>
-            {publishedAt}
+            {dateDistance}
           </Typography>
           <S.Content>{parse(textContent)}</S.Content>
         </S.MainContent>
