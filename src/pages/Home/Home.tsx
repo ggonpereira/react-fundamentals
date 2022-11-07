@@ -73,6 +73,7 @@ export const Home = () => {
                 postContent={post.postContent}
                 key={post.id}
                 publishedAt={new Date(+post.publishedAt * 1000)}
+                postId={post.id}
               />
             ))}
           </S.MainContent>
