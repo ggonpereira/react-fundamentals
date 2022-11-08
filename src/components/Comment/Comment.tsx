@@ -35,6 +35,10 @@ export const Comment = ({
 
   const dateDistance = formatDistanceToNow(publishedAt);
 
+  const handleReaction = () => {
+    setReactionCount((oldValue) => ++oldValue);
+  };
+
   return (
     <S.Container>
       <UserAvatar
@@ -66,7 +70,7 @@ export const Comment = ({
           </Typography>
           <S.Content>{parse(textContent)}</S.Content>
         </S.MainContent>
-        <S.ReactionArea wasReacted={wasReacted}>
+        <S.ReactionArea wasReacted={wasReacted} onClick={handleReaction}>
           <ThumbsUp size={20} />
           <Typography isBold color={theme.colors.gray[400]}>
             Applause • {String(reactionCount).padStart(2, "0")}
