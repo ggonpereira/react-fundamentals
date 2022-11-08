@@ -44,7 +44,12 @@ export const Post = ({
   publishedAt,
   postId,
 }: PostProps) => {
-  const { register, handleSubmit, resetField } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    resetField,
+    formState: { errors },
+  } = useForm<Inputs>();
 
   const { colors } = useTheme();
   const { user } = useUserContext();
@@ -110,7 +115,16 @@ export const Post = ({
           Write your feedback
         </Typography>
 
-        <S.TextArea placeholder="Write a comment..." {...register("comment")} />
+        <S.TextArea
+          placeholder="Write a comment..."
+          {...register("comment", {
+            required: { message: "This field is required!", value: true },
+          })}
+        />
+
+        {errors?.comment && (
+          <S.ErrorMessage>{errors.comment.message}</S.ErrorMessage>
+        )}
 
         <Button type="submit">Publish</Button>
       </S.FeedbackArea>

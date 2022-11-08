@@ -102,3 +102,8 @@ export const TextArea = styled.textarea`
     box-shadow: 0px 0px 14px 0px rgba(251, 167, 31, 0.027);
   }
 `;
+
+export const ErrorMessage = styled.small`
+  color: ${({ theme }) => theme.colors.danger};
+  margin-top: -1rem;
+`;
