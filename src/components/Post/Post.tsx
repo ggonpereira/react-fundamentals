@@ -4,7 +4,7 @@ import { UserAvatar } from "../UserAvatar";
 import parse from "html-react-parser";
 import * as S from "./Post.styles";
 import { Button } from "../Button";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Comment } from "../Comment";
 import { format, formatDistanceToNow } from "date-fns";
 import { useUserContext } from "../../contexts/UserContext";
@@ -71,6 +71,17 @@ export const Post = ({
     setComments((oldValues) => [...oldValues, comment]);
   };
 
+  const deleteComment = useCallback(
+    (commentId: string) => {
+      const filteredComments = comments.filter(
+        (comment) => comment.commentId !== commentId
+      );
+
+      setComments(filteredComments);
+    },
+    [comments]
+  );
+
   return (
     <S.Container>
       <S.Header>
@@ -113,6 +124,8 @@ export const Post = ({
           userAvatar={comment.userAvatar}
           userName={comment.userName}
           wasReacted={comment.wasReacted}
+          commentId={comment.commentId}
+          deleteComment={deleteComment}
         />
       ))}
     </S.Container>

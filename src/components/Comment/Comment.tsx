@@ -15,6 +15,8 @@ interface CommentProps {
   textContent: string;
   publishedAt: Date;
   wasReacted: boolean;
+  commentId: string;
+  deleteComment: (commentId: string) => void;
 }
 
 export const Comment = ({
@@ -24,6 +26,8 @@ export const Comment = ({
   textContent,
   publishedAt,
   wasReacted,
+  commentId,
+  deleteComment,
 }: CommentProps) => {
   const theme = useTheme();
 
@@ -53,7 +57,7 @@ export const Comment = ({
                 </Typography>
               )}
             </div>
-            <S.IconWrapper>
+            <S.IconWrapper onClick={() => deleteComment(commentId)}>
               <Trash size={24} />
             </S.IconWrapper>
           </S.Header>
