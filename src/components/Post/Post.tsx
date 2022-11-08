@@ -3,14 +3,14 @@ import { Typography } from "../Typography";
 import { UserAvatar } from "../UserAvatar";
 import parse from "html-react-parser";
 import * as S from "./Post.styles";
-import { TextArea } from "../TextArea";
 import { Button } from "../Button";
-import { FormEvent, useEffect, useState } from "react";
+import { useState } from "react";
 import { Comment } from "../Comment";
 import { format, formatDistanceToNow } from "date-fns";
 import { useUserContext } from "../../contexts/UserContext";
 
 import { v4 as uuidv4 } from "uuid";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface PostProps {
   userAvatar: string;
@@ -21,7 +21,7 @@ interface PostProps {
   postId: number;
 }
 
-interface Comment {
+interface CommentType {
   userAvatar: string;
   userName: string;
   commentContent: string;
@@ -32,13 +32,9 @@ interface Comment {
   wasReacted: boolean;
 }
 
-const getStoredComments = () => {
-  const storedComments = localStorage.getItem("@techyFeed:comments");
-  if (storedComments) {
-    const parsedComments: Comment[] = JSON.parse(storedComments);
-    return parsedComments;
-  }
-};
+interface Inputs {
+  comment: string;
+}
 
 export const Post = ({
   userAvatar,
@@ -48,34 +44,22 @@ export const Post = ({
   publishedAt,
   postId,
 }: PostProps) => {
+  const { register, handleSubmit, resetField } = useForm<Inputs>();
+
   const { colors } = useTheme();
   const { user } = useUserContext();
-  const [feedback, setFeedback] = useState("");
-  const [comments, setComments] = useState<Comment[]>([]);
+  const [comments, setComments] = useState<CommentType[]>([]);
   const publishedDateFormatTitle = format(
     publishedAt,
     "MMMM dd'th at' HH:mm'h'"
   );
   const dateDistance = formatDistanceToNow(publishedAt);
 
-  useEffect(() => {
-    const storedComments = getStoredComments();
-
-    if (storedComments) {
-      const commentsOfThisPost = storedComments.filter(
-        (comment) => comment.postId === postId
-      );
-
-      setComments(commentsOfThisPost);
-    }
-  }, []);
-
-  const handlePublishFeedback = (e: FormEvent) => {
-    e.preventDefault();
+  const handlePublishFeedback: SubmitHandler<Inputs> = (data) => {
     const comment = {
       userAvatar: user.avatar,
       userName: user.name,
-      commentContent: feedback,
+      commentContent: data.comment,
       publishedAt: new Date(),
       postId,
       commentId: uuidv4(),
@@ -83,13 +67,8 @@ export const Post = ({
       wasReacted: false,
     };
 
-    setComments((oldValue) => [...oldValue, comment]);
-    localStorage.setItem(
-      "@techyFeed:comments",
-      JSON.stringify([...comments, comment])
-    );
-
-    setFeedback("");
+    resetField("comment");
+    setComments((oldValues) => [...oldValues, comment]);
   };
 
   return (
@@ -115,16 +94,12 @@ export const Post = ({
 
       <S.PostContent>{parse(postContent)}</S.PostContent>
 
-      <S.FeedbackArea onSubmit={handlePublishFeedback}>
+      <S.FeedbackArea onSubmit={handleSubmit(handlePublishFeedback)}>
         <Typography variant="lg" isBold color={colors.gray[100]}>
           Write your feedback
         </Typography>
 
-        <TextArea
-          placeholder="Write a comment..."
-          value={feedback}
-          onChange={setFeedback}
-        />
+        <S.TextArea placeholder="Write a comment..." {...register("comment")} />
 
         <Button type="submit">Publish</Button>
       </S.FeedbackArea>
