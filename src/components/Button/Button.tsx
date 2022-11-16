@@ -7,7 +7,7 @@ interface ButtonProps {
   icon?: ReactNode;
   children: ReactNode;
   isFullWidth?: boolean;
-  type: "submit" | "button";
+  type?: "submit" | "button";
 }
 
 export const Button = ({
